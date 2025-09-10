@@ -1,1 +1,50 @@
 @import "tailwindcss";
+
+@layer base {
+  :root {
+    --color-primary-light: #0575e6;
+    --color-primary: #02298a;
+    --color-primary-dark: #021b79;
+
+    --color-text-primary: #1a1a1a;
+    --color-text-secondary: #666666;
+  }
+}
+
+@layer utilities {
+  .bg-login-gradient {
+    background: linear-gradient(
+      to bottom,
+      var(--color-primary-light),
+      var(--color-primary),
+      var(--color-primary-dark)
+    );
+  }
+}
+
+@layer base {
+  html {
+    font-family: "Inter", system-ui, sans-serif;
+  }
+
+  body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    padding: 0.625rem 2.5rem;
+    background-color: var(--color-primary-light);
+    color: white;
+    border-radius: 9999px;
+    transition-property: color, background-color;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 150ms;
+  }
+
+  .btn-primary:hover {
+    background-color: rgb(37, 99, 235);
+  }
+}
