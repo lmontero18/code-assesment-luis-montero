@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router";
 import { Formik, Form } from "formik";
 import type { FormikHelpers } from "formik";
-import { useAuth } from "@/hooks/useAuth";
+import { useAuthContext } from "@/context/AuthContext";
 import { useRememberMe } from "@/hooks/useRememberMe";
 import { loginSchema } from "@/validation/loginSchema";
 import { LOGIN_FORM_INITIAL_VALUES } from "@/constants/formValues";
@@ -17,7 +17,7 @@ type LoginFormData = typeof LOGIN_FORM_INITIAL_VALUES;
 
 const LoginForm = () => {
   const navigate = useNavigate();
-  const { login } = useAuth();
+  const { login } = useAuthContext();
   const { getStoredData, saveRememberMe } = useRememberMe();
   const [globalError, setGlobalError] = useState<string | null>(null);
   const [initialValues, setInitialValues] = useState(LOGIN_FORM_INITIAL_VALUES);
